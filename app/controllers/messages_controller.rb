@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @message.user_id=current_user.id
   end
 
   # GET /messages/1/edit
@@ -25,6 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.user_id=current_user.id
 
     respond_to do |format|
       if @message.save
@@ -64,7 +66,7 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = Message.find(params[:id])
+      @message = current_user.messages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
