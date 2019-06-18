@@ -10,5 +10,5 @@ Playing with Rails...
 - [ ] Start using Postgres
 - [ ] Start using Docker
 - [ ] Add caching?
-- [ ] Add throtling?
+- [ ] Add throttling?
 
